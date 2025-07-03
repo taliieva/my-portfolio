@@ -13,27 +13,27 @@ const MotionDiv = dynamic(
 export default function ContactInfo() {
   const aboutInfo = [
     {
-      icon: <Mail size={20} color="white" />,
+      icon: <Mail size={20} color="var(--foreground)" />,
       label: "Email",
       value: "teranealieva01@gmail.com",
     },
     {
-      icon: <Phone size={20} color="white" />,
+      icon: <Phone size={20} color="var(--foreground)" />,
       label: "Phone",
       value: "+994 50 755 01 30",
     },
     {
-      icon: <Calendar1 size={20} color="white" />,
+      icon: <Calendar1 size={20} color="var(--foreground)" />,
       label: "Birthday",
       value: "1 December 2001",
     },
     {
-      icon: <Linkedin size={20} color="white" />,
+      icon: <Linkedin size={20} color="var(--foreground)" />,
       label: "Linkedin",
       value: "http://linkedin.com/in/tarana-aliyeva",
     },
     {
-      icon: <Github size={20} color="white" />,
+      icon: <Github size={20} color="var(--foreground)" />,
       label: "Github",
       value: "https://github.com/taliieva",
     },
