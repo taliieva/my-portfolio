@@ -1,8 +1,12 @@
 "use client";
 import { Calendar1, Github, Linkedin, Mail, Phone } from "lucide-react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
+import dynamic from "next/dynamic";
+
+const MotionDiv = dynamic(() => import("framer-motion").then(mod => mod.motion.div), {
+  ssr: false,
+});
 export default function ContactInfo() {
   const aboutInfo = [
     {
@@ -44,7 +48,7 @@ export default function ContactInfo() {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 w-full max-w-4xl">
         {aboutInfo.map((info) => (
-          <motion.div
+          <MotionDiv
             key={info.label}
             whileHover={{ scale: 1.05, color: "#3b82f6", cursor: "pointer" }}
           >
@@ -53,7 +57,7 @@ export default function ContactInfo() {
               <span className="text-white text-sm font-semibold">{info.label}</span>
             </div>
             <p className="text-white text-[12px] md:text-sm break-words">{info.value}</p>
-          </motion.div>
+          </MotionDiv>
         ))}
       </div>
     </div>

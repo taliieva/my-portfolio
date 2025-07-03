@@ -1,6 +1,10 @@
 "use client";
-import { motion } from "framer-motion";
 
+import dynamic from "next/dynamic";
+
+const MotionDiv = dynamic(() => import("framer-motion").then(mod => mod.motion.ul), {
+  ssr: false,
+});
 export default function Skills() {
   const softSkills = [
     "Problem solving",
@@ -30,7 +34,7 @@ export default function Skills() {
     <div className="flex max-w-[800px] justify-between p-[30px] flex-col md:flex-row gap-8">
       <div className="flex flex-col gap-2">
         <p className="font-black text-[25px] mb-[10px]">Soft Skills</p>
-        <motion.ul
+        <MotionDiv
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -44,12 +48,12 @@ export default function Skills() {
               {skill}
             </li>
           ))}
-        </motion.ul>
+        </MotionDiv>
       </div>
 
       <div className="flex flex-col gap-2">
         <p className="font-black text-[25px] mb-[10px]">Tech & Tools</p>
-        <motion.ul
+        <MotionDiv
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -60,7 +64,7 @@ export default function Skills() {
               {skill}
             </li>
           ))}
-        </motion.ul>
+        </MotionDiv>
       </div>
     </div>
   );

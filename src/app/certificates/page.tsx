@@ -1,8 +1,13 @@
-import { motion } from "framer-motion";
+'use client';
 import { useState } from "react";
 import confetti from "canvas-confetti";
 import { certificateList } from "@/datas/certificateList";
 
+import dynamic from "next/dynamic";
+
+const MotionDiv = dynamic(() => import("framer-motion").then(mod => mod.motion.div), {
+  ssr: false,
+});
 export default function Certificates() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -18,7 +23,7 @@ export default function Certificates() {
     <div className="w-full px-4 py-10 flex flex-col items-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 w-full max-w-6xl">
         {certificateList.map((cert, index) => (
-          <motion.div
+          <MotionDiv
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,14 +37,14 @@ export default function Certificates() {
             className="relative bg-gray-800 rounded-xl p-4 sm:p-5 shadow-lg transition-all duration-300 border border-gray-700 hover:border-blue-500 overflow-hidden max-w-full"
           >
             {hoveredIndex === index && (
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3 }}
                 className="absolute top-2 right-3 text-2xl"
               >
                 🎓
-              </motion.div>
+              </MotionDiv>
             )}
 
             <div className="mb-2">
@@ -50,7 +55,7 @@ export default function Certificates() {
             <h3 className="text-white font-semibold text-base sm:text-lg leading-snug">
               {cert.title}
             </h3>
-          </motion.div>
+          </MotionDiv>
         ))}
       </div>
     </div>

@@ -1,8 +1,12 @@
 "use client";
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { experiences } from "@/datas/experience";
 
+import dynamic from "next/dynamic";
+
+const MotionDiv = dynamic(() => import("framer-motion").then(mod => mod.motion.div), {
+  ssr: false,
+});
 export default function Experiences() {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -32,7 +36,7 @@ export default function Experiences() {
         ))}
       </div>
 
-      <motion.div
+      <MotionDiv
         key={activeIndex}
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -51,7 +55,7 @@ export default function Experiences() {
             <li key={idx}>{item}</li>
           ))}
         </ul>
-      </motion.div>
+      </MotionDiv>
     </div>
   );
 }

@@ -1,13 +1,18 @@
+"use client";
 import { educationList } from "@/datas/educationList";
-import { motion } from "framer-motion";
 
+import dynamic from "next/dynamic";
+
+const MotionDiv = dynamic(() => import("framer-motion").then(mod => mod.motion.div), {
+  ssr: false,
+});
 
 export default function Education() {
   return (
     <div className="w-full flex flex-col items-start mt-10 px-4">
       <div className="relative border-l-2 border-gray-600 ml-4">
         {educationList.map((edu, index) => (
-          <motion.div
+          <MotionDiv
             key={index}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -28,7 +33,7 @@ export default function Education() {
                 ))}
               </ul>
             </div>
-          </motion.div>
+          </MotionDiv>
         ))}
       </div>
     </div>

@@ -8,20 +8,16 @@ import Education from "./education/page";
 import Certificates from "./certificates/page";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<
-    | "about"
-    | "skills"
-    | "education"
-    | "experiences"
-    | "certificates"
-  >("about");
   const tabs = [
     "about",
     "skills",
     "education",
     "experiences",
     "certificates",
-  ];
+  ] as const;
+
+  const [activeTab, setActiveTab] = useState<(typeof tabs)[number]>("about");
+
   return (
     <div className="w-full px-[30px] py-[20px] flex flex-col items-center">
       <ContactInfo />
@@ -30,7 +26,7 @@ export default function Home() {
         {tabs.map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab as any)}
+            onClick={() => setActiveTab(tab)}
             className={`capitalize pb-2 text-[14px] md:text-[18px] font-semibold transition-all duration-300 ${
               activeTab === tab
                 ? "border-b-2 border-blue-500 text-blue-500"
@@ -42,10 +38,10 @@ export default function Home() {
               : tab === "skills"
               ? "Skills"
               : tab === "education"
-              ? "education"
+              ? "Education"
               : tab === "experiences"
-              ? "experiences"
-              : "certificates"}
+              ? "Experiences"
+              : "Certificates"}
           </button>
         ))}
       </div>
@@ -53,7 +49,6 @@ export default function Home() {
       <div className="mt-8 w-full">
         {activeTab === "about" && <AboutMe />}
         {activeTab === "skills" && <Skills />}
-        {/* {activeTab === "projects" && <Projects />} */}
         {activeTab === "education" && <Education />}
         {activeTab === "experiences" && <Experiences />}
         {activeTab === "certificates" && <Certificates />}
