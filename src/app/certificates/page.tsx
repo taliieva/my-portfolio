@@ -20,7 +20,7 @@ export default function Certificates() {
   };
 
   return (
-    <div className="w-full px-4 py-10 flex flex-col items-center">
+    <div className="w-full md:px-4 py-10 flex flex-col items-center">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 w-full max-w-6xl">
         {certificateList.map((cert, index) => (
           <MotionDiv

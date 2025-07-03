@@ -31,7 +31,7 @@ export default function Skills() {
   ];
 
   return (
-    <div className="flex max-w-[800px] justify-between p-[30px] flex-col md:flex-row gap-8">
+    <div className="flex max-w-[800px] justify-between md:p-[30px] flex-col md:flex-row gap-8">
       <div className="flex flex-col gap-2">
         <p className="font-black text-[25px] mb-[10px]">Soft Skills</p>
         <MotionDiv

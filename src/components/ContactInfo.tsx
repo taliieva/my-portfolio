@@ -4,9 +4,12 @@ import Image from "next/image";
 
 import dynamic from "next/dynamic";
 
-const MotionDiv = dynamic(() => import("framer-motion").then(mod => mod.motion.div), {
-  ssr: false,
-});
+const MotionDiv = dynamic(
+  () => import("framer-motion").then((mod) => mod.motion.div),
+  {
+    ssr: false,
+  }
+);
 export default function ContactInfo() {
   const aboutInfo = [
     {
@@ -54,9 +57,13 @@ export default function ContactInfo() {
           >
             <div className="flex flex-row items-center gap-2 mb-1">
               {info.icon}
-              <span className="text-white text-sm font-semibold">{info.label}</span>
+              <span className="text-[color:var(--foreground)] text-sm font-semibold">
+                {info.label}
+              </span>
             </div>
-            <p className="text-white text-[12px] md:text-sm break-words">{info.value}</p>
+            <p className="text-[color:var(--foreground)] text-[12px] md:text-sm break-words">
+              {info.value}
+            </p>
           </MotionDiv>
         ))}
       </div>

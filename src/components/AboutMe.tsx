@@ -1,6 +1,6 @@
 export default function AboutMe() {
   return (
-    <div className="w-full p-[30px] flex flex-col gap-[30px]">
+    <div className="w-full md:p-[30px] flex flex-col gap-[30px]">
       {/* <p className="font-black text-[25px]">About Me</p> */}
       <p className="max-w-[800px] leading-relaxed text-gray-200 text-[14px] md:text-[18px]">
         Results-driven Frontend Developer with 1.5 years of professional

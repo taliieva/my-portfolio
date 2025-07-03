@@ -22,8 +22,8 @@ export default function Home() {
     <div className="w-full px-[30px] py-[20px] flex flex-col items-center">
       <ContactInfo />
 
-      <div className="flex w-full gap-6 border-b border-gray-700 mt-8">
-        {tabs.map((tab) => (
+      <div className="flex w-full gap-6 border-b border-gray-700 mt-8 overflow-x-auto scrollbar-hide">
+         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
