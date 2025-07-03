@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 const MotionDiv = dynamic(() => import("framer-motion").then(mod => mod.motion.div), {
   ssr: false,
 });
+
 export default function Certificates() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -34,7 +35,8 @@ export default function Certificates() {
               handleConfetti();
             }}
             onMouseLeave={() => setHoveredIndex(null)}
-            className="relative bg-gray-800 rounded-xl p-4 sm:p-5 shadow-lg transition-all duration-300 border border-gray-700 hover:border-blue-500 overflow-hidden max-w-full"
+            className="relative rounded-xl p-4 sm:p-5 shadow-lg transition-all duration-300 overflow-hidden max-w-full 
+                       bg-[color:var(--card-bg)] border border-[color:var(--secondary)] hover:border-[color:var(--primary)]"
           >
             {hoveredIndex === index && (
               <MotionDiv
@@ -48,11 +50,12 @@ export default function Certificates() {
             )}
 
             <div className="mb-2">
-              <span className="inline-block px-3 py-1 text-xs bg-blue-600 text-white rounded-full">
+              <span className="inline-block px-3 py-1 text-xs rounded-full 
+                               bg-[color:var(--primary)] text-[color:var(--background)]">
                 {cert.issuer}
               </span>
             </div>
-            <h3 className="text-white font-semibold text-base sm:text-lg leading-snug">
+            <h3 className="text-[color:var(--foreground)] font-semibold text-base sm:text-lg leading-snug">
               {cert.title}
             </h3>
           </MotionDiv>

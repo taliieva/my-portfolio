@@ -30,7 +30,7 @@ export default function Home() {
             className={`capitalize pb-2 text-[14px] md:text-[18px] font-semibold transition-all duration-300 ${
               activeTab === tab
                 ? "border-b-2 border-blue-500 text-blue-500"
-                : "text-gray-400 hover:text-white"
+                : "text-gray-400 hover:text-gray-500"
             }`}
           >
             {tab === "about"
